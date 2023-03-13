@@ -1,45 +1,66 @@
-.grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    width: 80%;
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+.content-grid {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
     max-width: 800px;
     margin: 0 auto;
 }
-/* 
-grid-template-columns: repeat(5, 1fr);  
-    - Define o tamanho das colunas no grid
-    - '1fr' significa uma fração do espaço
-*/
-
 
 .card {
-    width: 100%;
-    aspect-ratio: 3/4;
-    background-color: #bbb;
-    border-radius: 10px;
-    overflow: hidden;
+    width: 150px;
+    height: 200px;
+    border-radius: 9px;
+   
     position: relative;
-    box-shadow: 3px 3px 5px black;
-    transition: 200ms;
+    transition: all 400ms ease;
     transform-style: preserve-3d;
-}
-.card:hover {
-    transform: rotateY(180deg);
 }
 
 .face {
     width: 100%;
     height: 100%;
     position: absolute;
+    border-radius: 9px;
 }
+
 .front {
-    background-image: url();
-    background-color: red
-}
+    background-color: blueviolet;
+}  
 .back {
-    background-image: url('https://http2.mlstatic.com/D_NQ_NP_731616-MLB46480547448_062021-O.jpg');
+    background-image: url('../imgs/goku.jpg');
     background-size: cover;
-    background-position: center;
     backface-visibility: hidden;
+}
+
+.reveal-card {
+    transform: rotateY(180deg);
+}
+
+.disabled-card {
+    filter: saturate(0)
+    opacity(0.5)
+}
+
+
+
+@media (max-width: 598px) {
+    .card {
+        width: 75px;
+        height: 100px;
+    }
 }

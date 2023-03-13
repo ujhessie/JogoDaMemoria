@@ -1,37 +1,23 @@
-var  inputLogin = document.querySelector('#iinputLogin')
-var buttonPlay = document.querySelector('#ibuttonPlay')
-var form = document.querySelector('#iform')
+const input = document.querySelector('#input-text')
+const bntPlay = document.querySelector('#btn-play')
+const form = document.querySelector('#form')
 
-
-// validação de login
 const validateLogin = ({target}) => {
-    if (target.value.length < 3 ) {
-        console.log('iiii pegou nao po')
-        buttonPlay.setAttribute('disabled', '')
+    if (target.value.length > 2) {
+        bntPlay.removeAttribute('disabled')
     }
     else {
-        console.log('pegou carai')
-        buttonPlay.removeAttribute('disabled')
+        bntPlay.setAttribute('disabled', '')
     }
 }
 
-
-// retirar funcionamento de recarregar de submmit
-const handleSubmit = (event) => {
-    event.preventDefault() // Bloqueia funcionamento de recarregar de um formulário
-    console.log(inputLogin.value)
-    localStorage.setItem("player", inputLogin.value)
+const hSubmit = (event) => {
+    event.preventDefault()
+    localStorage.setItem('pleyer', input.value)
     window.location = 'pages/game.html'
 }
 
 
-
-
-//salvar em localstorage
-
-
-// retirar funcionamento de recarregar de submmit
-form.addEventListener('submit', handleSubmit)
-
-// Validação de login
-inputLogin.addEventListener('input', validateLogin)
+input.addEventListener('input', validateLogin)
+form.addEventListener('submit', hSubmit)
+console.log(form) 
